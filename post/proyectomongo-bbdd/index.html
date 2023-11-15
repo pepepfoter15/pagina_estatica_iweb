@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="es" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>Proyecto de MongoDB - </title>
+
+  <meta name="description" content="Gestión de Bases de Datos">
+  <meta name="author" content="Pepe Rodríguez"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Pfoter\u0027s Blog",
+    
+    "url": "https:\/\/www.pepepfoter15.es"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/www.pepepfoter15.es"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/www.pepepfoter15.es",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/www.pepepfoter15.es\/post\/proyectomongo-bbdd\/",
+          "name": "Proyecto de mongo db"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Pepe Rodríguez"
+  },
+  "headline": "Proyecto de MongoDB",
+  "description" : "En este proyecto,tras la instalación de Mongodb en Debian, trataremos de Mongodb en el que tenemos los siguientes requisitos",
+  "inLanguage" : "es",
+  "wordCount":  2679 ,
+  "datePublished" : "0001-01-01T00:00:00",
+  "dateModified" : "0001-01-01T00:00:00",
+  "image" : "https:\/\/www.pepepfoter15.es\/img\/fondo.jpg",
+  "keywords" : [ "mongo, bbdd, sql" ],
+  "mainEntityOfPage" : "https:\/\/www.pepepfoter15.es\/post\/proyectomongo-bbdd\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/www.pepepfoter15.es",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/www.pepepfoter15.es\/img\/fondo.jpg",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="Proyecto de MongoDB" />
+<meta property="og:description" content="Gestión de Bases de Datos">
+<meta property="og:image" content="https://www.pepepfoter15.es/img/fondo.jpg" />
+<meta property="og:url" content="https://www.pepepfoter15.es/post/proyectomongo-bbdd/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Pfoter&#39;s Blog" />
+
+  <meta name="twitter:title" content="Proyecto de MongoDB" />
+  <meta name="twitter:description" content="Gestión de Bases de Datos">
+  <meta name="twitter:image" content="https://www.pepepfoter15.es/img/fondo.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@PepeRodrguezCa3" />
+  <meta name="twitter:creator" content="@PepeRodrguezCa3" />
+  <link href='https://www.pepepfoter15.es/img/faviconbueno.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.111.3">
+  <link rel="alternate" href="https://www.pepepfoter15.es/index.xml" type="application/rss+xml" title="Pfoter&#39;s Blog"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://www.pepepfoter15.es/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://www.pepepfoter15.es/css/highlight.min.css" /><link rel="stylesheet" href="https://www.pepepfoter15.es/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Conmuta navegación</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.pepepfoter15.es">Pfoter&#39;s Blog</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent">Proyectos</a>
+              <div class="navlinks-children">
+                
+                  <a href="/post/ssh-iso">Configuración Windows Server Core 2019 SSH - ISO</a>
+                
+                  <a href="/post/proyectomongo-bbdd">Proyecto de MongoDB - BBDD</a>
+                
+                  <a href="/post/underworldevolution-par">UNDERWORLD EVOLUTION - PAR</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Sobre mí" href="/page/about/">Sobre mí</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="Pfoter&#39;s Blog" href="https://www.pepepfoter15.es">
+            <img class="avatar-img" src="https://www.pepepfoter15.es/img/fondo.jpg" alt="Pfoter&#39;s Blog" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+    <div id="header-big-imgs" data-num-img=3
+      
+         
+          data-img-src-1="../img/triangle.jpg"
+         
+         data-img-desc-1="Triangle"
+      
+         
+          data-img-src-2="../img/sphere.jpg"
+         
+         data-img-desc-2="Sphere"
+      
+         
+          data-img-src-3="../img/hexagon.jpg"
+         
+         data-img-desc-3="Hexagon"
+      ></div>
+  
+
+  <header class="header-section has-img">
+    
+      
+      <div class="intro-header big-img" style="background-image: url('../img/triangle.jpg');">
+        
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+              <div class="post-heading">
+                <h1>Proyecto de MongoDB</h1>
+                  
+                    
+                      <h2 class="post-subheading">Gestión de Bases de Datos</h2>
+                    
+                  
+                  
+                    <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Publicado el Octubre 19, 10112
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;13&nbsp;minutos
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;2679&nbsp;palabras
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Pepe Rodríguez
+    
+  
+  
+</span>
+
+
+                  
+              </div>
+            </div>
+          </div>
+        </div>
+        <span class="img-desc" style="display: inline;">Triangle</span>
+      </div>
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Proyecto de MongoDB</h1>
+              
+              
+              
+                
+                  <h2 class="post-subheading">Gestión de Bases de Datos</h2>
+                
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Publicado el Octubre 19, 10112
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;13&nbsp;minutos
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;2679&nbsp;palabras
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Pepe Rodríguez
+    
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h3 id="en-este-proyectotras-la-instalación-de-mongodb-en-debian--trataremos-de-mongodb-en-el-que-tenemos-los-siguientes-requisitos">En este proyecto,tras la instalación de Mongodb en Debian,  trataremos de Mongodb en el que tenemos los siguientes requisitos</h3>
+<p>PROYECTO MONGO - BBDD</p>
+<p>En este proyecto,tras la instalación de Mongodb en Debian,  trataremos de Mongodb en el que tenemos los siguientes requisitos:</p>
+<h2 id="1-parte">1. Parte</h2>
+<ul>
+<li>Debes seleccionar un fichero json que incluya todos los tipos de datos soportados en MongoDB. Antes de continuar la profesora deberá dar el visto bueno al mismo.</li>
+<li>Con la utilidad mongoimport introduce los documentos correspondientes a esa colección.</li>
+<li>Inserta varios documentos utilizando los dos métodos de inserción de MongoDB</li>
+<li>Elimina varios documentos utilizando los dos métodos de eliminación de MongoDB</li>
+<li>Actualiza varios documentos utilizando los tres métodos de eliminación de MongoDB
+Consultas:</li>
+<li>Al menos incluye 5 consultas de datos simple</li>
+<li>Al menos 3 consultas con array</li>
+<li>Al menos 3 consultas con documentos embebidos</li>
+<li>Al menos 1 consulta de agrupación</li>
+</ul>
+<h2 id="2-parte">2. Parte</h2>
+<ul>
+<li>Debes seleccionar al menos cuatro tablas de tu proyecto que incluyan una relación N:M y una 1:N con el mayor número de tipos de datos soportados en MongoDB. Antes de continuar la profesora deberá dar el visto bueno a las mismas.</li>
+<li>Debes pasar de SQL a MongoDB.</li>
+<li>Inserta varios documentos utilizando los dos métodos de inserción de MongoDB</li>
+<li>Elimina varios documentos utilizando los dos métodos de eliminación de MongoDB</li>
+<li>Actualiza varios documentos utilizando los tres métodos de eliminación de MongoDB
+Consultas:</li>
+<li>Al menos incluye 5 consultas de datos simples</li>
+<li>Al menos 3 consultas con arrays</li>
+<li>Al menos 3 consultas con documentos embebidos</li>
+<li>Al menos 1 consulta de agrupación</li>
+</ul>
+<h5 id="nota-debes-utilizar-en-las-consultas-proyecciones-operadores-ordenación-y-los-modificadores-sort-y-limit-se-valorará-la-complejidad-de-las-mismas-debes-incluir-capturas-que-demuestren-el-buen-funcionamiento-de-cada-una-de-las-operaciones-realizadas-en-cada-una-de-las-dos-partes">NOTA: Debes utilizar en las consultas proyecciones, operadores, ordenación y los modificadores sort y limit. Se valorará la complejidad de las mismas. Debes incluir capturas que demuestren el buen funcionamiento de cada una de las operaciones realizadas en cada una de las dos partes.</h5>
+<p>Con esto dividiremos el trabajo en 2 partes:</p>
+<ol>
+<li>Parte</li>
+<li>Parte</li>
+</ol>
+<p>Y comenzamos la práctica.</p>
+<h2 id="1-parte-1">1. PARTE</h2>
+<p>Para este apartado y el siguiente seguiré el orden de las preguntas y los seguiré de esa manera.</p>
+<h4 id="1-debes-seleccionar-un-fichero-json-que-incluya-todos-los-tipos-de-datos-soportados-en-mongodb-antes-de-continuar-la-profesora-deberá-dar-el-visto-bueno-al-mismo">1. Debes seleccionar un fichero json que incluya todos los tipos de datos soportados en MongoDB. Antes de continuar la profesora deberá dar el visto bueno al mismo.</h4>
+<p>El fichero json elegido es el siguiente: <a href="https://data.nasa.gov/resource/y77d-th95.json">https://data.nasa.gov/resource/y77d-th95.json</a></p>
+<p>Aún así este fichero tiene modificaciones, entre ellas el recorte ya que son muchas librerías para hacer consultas algo más exactas.</p>
+<h4 id="2-con-la-utilidad-mongoimport-introduce-los-documentos-correspondientes-a-esa-colección">2. Con la utilidad mongoimport introduce los documentos correspondientes a esa colección.</h4>
+<p>Para ello, como yo tengo una máquina en el cloud para este proyecto, deberé importar una copia a dicha máquina que he configurado para entrar por ssh. Esto lo haré mediante el siguiente comando:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">scp ~/BBDD/ficheromongo.json  nombreservidormongo@ipdelservidor:
+</span></span></code></pre></div><p>En mi caso se verá así:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">scp ~/BBDD/ficheromongo.json  debian@172.22.200.121:
+</span></span></code></pre></div><p>Y para importar dicho fichero .json, lo haremos con el siguiente comando:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">mongoimport --db &lt;nombre de la base de datos&gt; --collection &lt;nombre de la colección&gt; --file &lt;ruta del archivo JSON&gt;
+</span></span></code></pre></div><p>En mi caso se verá así:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">mongoimport --db proyectobbdd --collection mi_coleccion --jsonArray --file ficheromongo.json
+</span></span></code></pre></div><p>Con esto, ya habremos importado nuestro fichero json a mongo.</p>
+<h4 id="3-inserta-varios-documentos-utilizando-los-dos-métodos-de-inserción-de-mongodb">3. Inserta varios documentos utilizando los dos métodos de inserción de MongoDB.</h4>
+<p>Para este subapartado, debemos saber que hay 2 tipos de métodos de inserción de datos en Mongodb que son:</p>
+<p>insertOne() : este método inserta un solo documento a nuestra colección.
+insertMany() : este método inserta dos o más documentos a nuestra colección.</p>
+<p>Tras esto, os voy a mostrar los ejemplos utilizados para cada uno de los métodos:
+En el primer caso, insertó un solo documento con los siguientes valores.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">db.mi_coleccion.insertOne({&#34;name&#34;:&#34;Mi dios Javing&#34;,&#34;id&#34;:&#34;2&#34;,&#34;nametype&#34;:&#34;Valid&#34;,&#34;recclass&#34;:&#34;L6&#34;,&#34;mass&#34;:&#34;1001&#34;,&#34;fall&#34;:&#34;Fell&#34;,&#34;year&#34;:&#34;2004-06-07T00:00:00.000&#34;,&#34;reclat&#34;:&#34;-3.75&#34;,&#34;reclong&#34;:&#34;221.43233&#34;,&#34;geolocation&#34;:{&#34;type&#34;:&#34;Point&#34;,&#34;coordinates&#34;:[221.43233,-3.75]}})
+</span></span></code></pre></div><p><img src="../img/mongo/insertone1.png" alt="Parte 1"></p>
+<p>Con esta inserción, vemos el correcto funcionamiento de este complemento .insertOne(). Pasamos al complemento .insertMany() en el cual inserto 3 documentos con valores distintos entre sí.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">db.mi_coleccion.insertMany([
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">{&#34;name&#34;:&#34;Kenia&#34;,&#34;id&#34;:&#34;3&#34;,&#34;nametype&#34;:&#34;Valid&#34;,&#34;recclass&#34;:&#34;H5&#34;,&#34;mass&#34;:&#34;1231&#34;,&#34;fall&#34;:&#34;Fell&#34;,&#34;year&#34;:&#34;2001-01-30T00:00:00.000&#34;,&#34;reclat&#34;:&#34;-22.35&#34;,&#34;reclong&#34;:&#34;563.23413&#34;,&#34;geolocation&#34;:{&#34;type&#34;:&#34;Point&#34;,&#34;coordinates&#34;:[563.23413,-22.35]}},
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">{&#34;name&#34;:&#34;Congo&#34;,&#34;id&#34;:&#34;4&#34;,&#34;nametype&#34;:&#34;Valid&#34;,&#34;recclass&#34;:&#34;L5&#34;,&#34;mass&#34;:&#34;900&#34;,&#34;fall&#34;:&#34;Fell&#34;,&#34;year&#34;:&#34;1992-03-12T00:00:00.000&#34;,&#34;reclat&#34;:&#34;-31.45&#34;,&#34;reclong&#34;:&#34;851.65840&#34;,&#34;geolocation&#34;:{&#34;type&#34;:&#34;Point&#34;,&#34;coordinates&#34;:[851.65840,-31.45]}},
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">{&#34;name&#34;:&#34;Nueva Ginea&#34;,&#34;id&#34;:&#34;5&#34;,&#34;nametype&#34;:&#34;Valid&#34;,&#34;recclass&#34;:&#34;L3-4&#34;,&#34;mass&#34;:&#34;400&#34;,&#34;fall&#34;:&#34;Fell&#34;,&#34;year&#34;:&#34;1925-12-01T00:00:00.000&#34;,&#34;reclat&#34;:&#34;-1.20&#34;,&#34;reclong&#34;:&#34;130.23413&#34;,&#34;geolocation&#34;:{&#34;type&#34;:&#34;Point&#34;,&#34;coordinates&#34;:[130.23413,-1.20]}}   ])
+</span></span></code></pre></div><p><img src="../img/mongo/insertmany1.png" alt="Parte 1"></p>
+<p>Con esto ya hemos acabado con los 2 métodos de inserción.</p>
+<h4 id="4-elimina-varios-documentos-utilizando-los-dos-métodos-de-eliminación-de-mongodb">4. Elimina varios documentos utilizando los dos métodos de eliminación de MongoDB</h4>
+<p>En MongoDB, existen dos métodos principales para eliminar documentos de una colección:</p>
+<p>deleteOne()
+deleteMany()</p>
+<p>A continuación, te mostraré cómo utilizar ambos métodos para eliminar documentos de una colección. Primero, comentamos el borrado de datos simple con esta consulta para eliminar la primera que insertamos:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">db.mi_coleccion.deleteOne({ &#34;name&#34;: &#34;Mi dios Javing&#34; })
+</span></span></code></pre></div><p><img src="../img/mongo/deleteone1.png" alt="Parte 1"></p>
+<p>Con esto, hemos borrado un dato que agregamos anteriormente con el nombre “Mi dios Javing” en mongodb. Tras esto, vamos hacer una consulta para que nos deje borrar más de un tipo de dato. Esto lo haremos con el método de deleteMany() que se verá de esta forma:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">db.mi_coleccion.deleteMany({ &#34;id&#34;: { $lte: &#34;5&#34; } })
+</span></span></code></pre></div><p><img src="../img/mongo/deletemany1.png" alt="Parte 1"></p>
+<p>Con esto, hemos borrado todos los documentos de la colección mi_coleccion de la base de datos proyectobbdd que tengan un campo id con un valor menor o igual a 5.</p>
+<p>Tras esto, pasamos al siguiente apartado.</p>
+<h4 id="5-actualiza-varios-documentos-utilizando-los-tres-métodos-de-eliminación-de-mongodb">5. Actualiza varios documentos utilizando los tres métodos de eliminación de MongoDB.</h4>
+<p>En este apartado, para actualizar varios documentos utilizando los tres métodos de eliminación de MongoDB, primero necesitas tener varios documentos que cumplan con la modificación que quieres hacer. A continuación, se proporciona un ejemplo de cómo actualizar varios documentos utilizando los tres métodos de eliminación con este formato de JSON:
+Método updateOne(): actualiza el primer documento que cumpla con la condición especificada. Se verá mejor con este ejemplo:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">db.mi_coleccion.updateOne({ &#34;name&#34;: &#34;Aleppo&#34; }, { $set: { &#34;mass&#34;: &#34;2000&#34; } })
+</span></span></code></pre></div><p><img src="../img/mongo/updateone1.png" alt="Parte 1"></p>
+<p>Con esta consulta de actualización, lo que hemos hecho ha sido actualizar la masa a 2000 del meteorito que se llama Aleppo y vemos que se ha actualizado correctamente.
+Método updateMany(): actualiza todos los documentos que cumplan con la condición especificada. Se verá mejor con el siguiente ejemplo:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">db.mi_coleccion.updateMany({ &#34;year&#34;: &#34;1923-01-01T00:00:00.000&#34; }, { $set: { &#34;recclass&#34;: &#34;L5&#34; } })
+</span></span></code></pre></div><p><img src="../img/mongo/updatemany1v1.png" alt="Parte 1">
+<img src="../img/mongo/updatemany1v2.png" alt="Parte 1"></p>
+<p>Con esta consulta de actualización, lo que hemos actualizado es que los meteoritos caídos en 1923, sean de la clase L5 y vemos que se ha actualizado correctamente a 12 meteoritos mediantes esta consulta.
+Método replaceOne(): reemplaza el primer documento que cumpla con la condición especificada. Se verá mejor con el siguiente ejemplo:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">db.mi_coleccion.replaceOne({ &#34;id&#34;: &#34;5039&#34; }, { &#34;name&#34;: &#34;Ballena&#34;, &#34;mass&#34;: &#34;2400&#34; })
+</span></span></code></pre></div><p><img src="../img/mongo/replaceone1.png" alt="Parte 1"></p>
+<p>Con esta consulta de actualización, lo que hemos remplazado ese id con las siguientes condiciones:
+Nombre ballena
+Y masa 2400 KG.
+Y vemos que se han creado correctamente con las capturas siguientes de db.mi_coleccion.find() para filtrar el dato correctamente en cada uno de los métodos.
+Mediante estos 3 tipos de actualización de datos, podemos manipular el código json a nuestro antojo y se ve reflejado en estos métodos de actualización.
+Y pasamos al último apartado de la parte 1.</p>
+<h4 id="6-consultas">6. Consultas:</h4>
+<h4 id="61--al-menos-incluye-5-consultas-de-datos-simples">6.1.- Al menos incluye 5 consultas de datos simples</h4>
+<h4 id="62--al-menos-3-consultas-con-arrays">6.2.- Al menos 3 consultas con arrays</h4>
+<h4 id="63--al-menos-3-consultas-con-documentos-embebidos">6.3.- Al menos 3 consultas con documentos embebidos</h4>
+<h4 id="64--al-menos-1-consulta-de-agrupación">6.4.- Al menos 1 consulta de agrupación</h4>
+<p>Para este apartado, lo dividiremos en partes para poder dividirlo de la mejor manera sin agrupar distintos tipos de consultas.
+Y con esto comenzamos las consultas.</p>
+<h4 id="61--al-menos-incluye-5-consultas-de-datos-simples-1">6.1.- Al menos incluye 5 consultas de datos simples</h4>
+<p>En este apartado haré las 5 correspondientes que son las siguientes:</p>
+<ol>
+<li>Obtener el nombre de la caída de meteorito.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">db.mi_coleccion.find({id: &#34;30443&#34;}, {name: 1, _id: 0})
+</span></span></code></pre></div><p><img src="../img/mongo/parte1.6.1.1.png" alt="Parte 1"></p>
+<ol start="2">
+<li>Obtener una lista de ordenada por el id según el año 1923 .</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">db.mi_coleccion.find({ &#34;year&#34;: &#34;1923-01-01T00:00:00.000&#34; }).sort({id: 1, year: -1})
+</span></span></code></pre></div><p><img src="../img/mongo/parte1.6.1.2.png" alt="Parte 1"></p>
+<p>En este caso, nos mostrará las 12 que ya modificamos anteriormente.</p>
+<ol start="3">
+<li>Muestra un meteorito que este entre el año 1990 (inclyendolo) hasta el año 2000, ordenado por masa descendentemente y con un límite de 5 datos mostrados.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">db.mi_coleccion.find({year: {$gte: &#34;1990-01-01T00:00:00.000&#34;, $lt: &#34;2000-01-01T00:00:00.000&#34;}}).sort({mass: -1}).limit(5)
+</span></span></code></pre></div><p><img src="../img/mongo/parte1.6.1.3.png" alt="Parte 1"></p>
+<ol start="4">
+<li>Encuentra los meteoritos que tengan las reclass H5 con masa igual a 90000.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">db.mi_coleccion.find({ &#34;recclass&#34;: &#34;H5&#34; },{“mass”: {$eq : “90000”}})
+</span></span></code></pre></div><p><img src="../img/mongo/parte1.6.1.4.png" alt="Parte 1"></p>
+<ol start="5">
+<li>Mostrar los meteoritos con reclass distinta a H5, con año mayor del 2000 ordenado por id descendentemente con límite de 8 meteoritos.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">db.mi_coleccion.find({ &#34;recclass&#34;: { $ne: &#34;H5&#34; }, &#34;year&#34;: { $gt: &#34;2000-01-01T00:00:00.000&#34; } }).sort({ &#34;id&#34;: -1 }).limit(8)
+</span></span></code></pre></div><p><img src="../img/mongo/parte1.6.1.5.png" alt="Parte 1"></p>
+<h4 id="62--al-menos-3-consultas-con-arrays-1">6.2.- Al menos 3 consultas con arrays</h4>
+<p>Para estas consultas, como mis datos no dan juego a los arrays, he tenido que añadir varios por mi cuenta. Exactamente 8 que están en el archivo sql.</p>
+<p><img src="../img/mongo/array1.png" alt="Parte 1">
+<img src="../img/mongo/array2.png" alt="Parte 1">
+<img src="../img/mongo/array3.png" alt="Parte 1">
+<img src="../img/mongo/array4.png" alt="Parte 1"></p>
+<p>Con esto comenzamos las consultas de array.</p>
+<ol>
+<li>Mostrar todas las ubicaciones en las que ha impactado un meteorito:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">db.mi_coleccion.distinct(&#34;impact.location&#34;)
+</span></span></code></pre></div><p><img src="../img/mongo/parte1.6.2.1.png" alt="Parte 1"></p>
+<ol start="2">
+<li>Conseguir todos los impactos en los que el tipo de impacto fue &ldquo;Factory&rdquo;:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">db.mi_coleccion.find({&#34;impact.type&#34;: &#34;Factory&#34;})
+</span></span></code></pre></div><p><img src="../img/mongo/parte1.6.2.2.png" alt="Parte 1"></p>
+<ol start="3">
+<li>Obtener los nombres de todos los meteoritos que han impactado en los Estados Unidos en orden alfabético:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">db.mi_coleccion.find({&#34;impact.location&#34;: &#34;USA&#34;}, {name: 1})
+</span></span></code></pre></div><p><img src="../img/mongo/parte1.6.2.3.png" alt="Parte 1"></p>
+<h4 id="63--al-menos-3-consultas-con-documentos-embebidos-1">6.3.- Al menos 3 consultas con documentos embebidos</h4>
+<p>Para esto aplicaremos los inserts anteriores que utilizamos para los arrays.</p>
+<ol>
+<li>Mostrar todos los impactos de tipo &ldquo;House&rdquo;:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">db.mi_coleccion.find({&#34;impact.type&#34;: &#34;House&#34;})
+</span></span></code></pre></div><p><img src="../img/mongo/parte1.6.3.1.png" alt="Parte 1"></p>
+<ol start="2">
+<li>Obtener todos los meteoritos que cayeron en los Estados Unidos:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">db.mi_coleccion.find({&#34;impact.location&#34;: {&#34;$in&#34;: [&#34;USA&#34;]}})
+</span></span></code></pre></div><p><img src="../img/mongo/parte1.6.3.2.png" alt="Parte 1"></p>
+<ol start="3">
+<li>Obtener el impacto y la ubicación del meteorito llamado &ldquo;Chergach&rdquo;:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">db.mi_coleccion.find({&#34;name&#34;: &#34;Chergach&#34;}, {&#34;impact&#34;: 1})
+</span></span></code></pre></div><p><img src="../img/mongo/parte1.6.3.3.png" alt="Parte 1"></p>
+<h4 id="64--al-menos-1-consulta-de-agrupación-1">6.4.- Al menos 1 consulta de agrupación</h4>
+<p>Para esta consulta, aplicaremos los inserts que creamos anteriormente. La consulta que haremos será la siguiente:</p>
+<ol>
+<li>Mostrar los datos de los países, utilizando la ubicación del impacto  del pais y contando los meteoritos de cada ubicación</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">db.meteorites.aggregate([{ $group : { _id : &#34;$impact.location.1&#34;, count: { $sum: 1 } } }])
+</span></span><span class="line"><span class="cl">{ &#34;_id&#34; : &#34;Morocco&#34;, &#34;count&#34; : 1 }
+</span></span><span class="line"><span class="cl">{ &#34;_id&#34; : &#34;Mexico&#34;, &#34;count&#34; : 1 }
+</span></span><span class="line"><span class="cl">{ &#34;_id&#34; : &#34;Serbia&#34;, &#34;count&#34; : 1 }
+</span></span><span class="line"><span class="cl">{ &#34;_id&#34; : &#34;Czech Republic&#34;, &#34;count&#34; : 1 }
+</span></span><span class="line"><span class="cl">{ &#34;_id&#34; : &#34;USA&#34;, &#34;count&#34; : 3 }
+</span></span><span class="line"><span class="cl">{ &#34;_id&#34; : &#34;Poland&#34;, &#34;count&#34; : 1 }
+</span></span></code></pre></div><h2 id="2-parte-1">2. PARTE</h2>
+<p>Para este apartado, aplicaré las tablas de mi proyecto de base de datos de la fase 3. En el enunciado, nos pide que haya una relación 1:N y otra relación N:M. En mi caso, son relaciones que no comparten relación entre 2 a 2 tablas, por ello, utilizaré 2 colecciones distintas. Las tablas involucradas son las siguientes:
+AVIÓN Y MANTENIMIENTO : N:M -&gt; coleccion1
+VUELO Y VIAJE: 1:N -&gt; coleccion2</p>
+<p>Para este apartado y el siguiente seguiré el orden de las preguntas y los seguiré de esa manera.</p>
+<h4 id="1-debes-seleccionar-al-menos-cuatro-tablas-de-tu-proyecto-que-incluyan-una-relación-nm-y-una-1n-con-el-mayor-número-de-tipos-de-datos-soportados-en-mongodb-antes-de-continuar-la-profesora-deberá-dar-el-visto-bueno-a-las-mismas">1. Debes seleccionar al menos cuatro tablas de tu proyecto que incluyan una relación N:M y una 1:N con el mayor número de tipos de datos soportados en MongoDB. Antes de continuar la profesora deberá dar el visto bueno a las mismas.</h4>
+<p>Ya me dió visto bueno a la selección de tablas del proyecto</p>
+<h4 id="2-debes-pasar-de-sql-a-mongodb">2. Debes pasar de SQL a MongoDB.</h4>
+<p>Ya lo he pasado y os voy a mostrar ejemplos del formato que sigue mi json. Se ve de esta manera:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">AVIÓN Y MANTENIMIENTO:
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">   &#34;Num_serie&#34;: 123456789,
+</span></span><span class="line"><span class="cl">   &#34;Antiguedad&#34;: &#34;12-09-2015&#34;,
+</span></span><span class="line"><span class="cl">   &#34;Fecha_ultima_revision&#34;: &#34;01-02-2022&#34;,
+</span></span><span class="line"><span class="cl">   &#34;Num_horas_vuelo&#34;: 345,
+</span></span><span class="line"><span class="cl">   &#34;Modelo_compania&#34;: &#34;Boeing&#34;,
+</span></span><span class="line"><span class="cl">   &#34;Caracteristicas&#34;: [
+</span></span><span class="line"><span class="cl">       {
+</span></span><span class="line"><span class="cl">           &#34;Num_motores&#34;: 1,
+</span></span><span class="line"><span class="cl">           &#34;Num_asientos&#34;: 180,
+</span></span><span class="line"><span class="cl">           &#34;Potencia_motores&#34;: 46.32,
+</span></span><span class="line"><span class="cl">           &#34;Dimensiones&#34;: 30.50,
+</span></span><span class="line"><span class="cl">           &#34;Autonomia&#34;: 8000
+</span></span><span class="line"><span class="cl">       }
+</span></span><span class="line"><span class="cl">   ],
+</span></span><span class="line"><span class="cl">   &#34;mantenimiento&#34;: [
+</span></span><span class="line"><span class="cl">       {
+</span></span><span class="line"><span class="cl">           &#34;cod_mantenimiento&#34;: &#34;MNT-001&#34;,
+</span></span><span class="line"><span class="cl">           &#34;Descripcion&#34;: &#34;Revisión de motores&#34;,
+</span></span><span class="line"><span class="cl">           &#34;Nombre_tecnico&#34;: &#34;Jose Manuel Fernández&#34;
+</span></span><span class="line"><span class="cl">       }
+</span></span><span class="line"><span class="cl">   ]
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">VUELO Y VIAJE:
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">   &#34;vuelo&#34;: [
+</span></span><span class="line"><span class="cl">       {
+</span></span><span class="line"><span class="cl">           &#34;cod_vuelo&#34;: &#34;VU-001&#34;,
+</span></span><span class="line"><span class="cl">           &#34;cod_empleado&#34;: &#34;EMP-001&#34;,
+</span></span><span class="line"><span class="cl">           &#34;cod_aeropuerto&#34;: &#34;AER-001&#34;,
+</span></span><span class="line"><span class="cl">           &#34;Nombre&#34;: &#34;Vuelo Madrid Barcelona&#34;,
+</span></span><span class="line"><span class="cl">           &#34;Cod_aeropuerto_origen&#34;: &#34;MAD&#34;,
+</span></span><span class="line"><span class="cl">           &#34;Cod_aeropuerto_destino&#34;: &#34;BCN&#34;,
+</span></span><span class="line"><span class="cl">           &#34;Compania&#34;: &#34;Iberia&#34;,
+</span></span><span class="line"><span class="cl">           &#34;Hora_prevista_salida&#34;: &#34;2023-05-01T12:30:00Z&#34;,
+</span></span><span class="line"><span class="cl">           &#34;Hora_prevista_llegada&#34;: &#34;2023-05-01T14:00:00Z&#34;
+</span></span><span class="line"><span class="cl">       }
+</span></span><span class="line"><span class="cl">   ],
+</span></span><span class="line"><span class="cl">   &#34;viaje&#34;: [
+</span></span><span class="line"><span class="cl">       {
+</span></span><span class="line"><span class="cl">           &#34;cod_viaje&#34;: &#34;V-001&#34;,
+</span></span><span class="line"><span class="cl">           &#34;cod_vuelo&#34;: &#34;VU-001&#34;,
+</span></span><span class="line"><span class="cl">           &#34;Fecha_viaje&#34;: &#34;2023-05-01&#34;,
+</span></span><span class="line"><span class="cl">           &#34;Cancelado&#34;: &#34;N&#34;
+</span></span><span class="line"><span class="cl">       }
+</span></span><span class="line"><span class="cl">   ]
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h4 id="3-inserta-varios-documentos-utilizando-los-dos-métodos-de-inserción-de-mongodb-1">3. Inserta varios documentos utilizando los dos métodos de inserción de MongoDB</h4>
+<p>Para este subapartado, debemos saber que hay 2 tipos de métodos de inserción de datos en Mongodb que son:</p>
+<p>insertOne() : este método inserta un solo documento a nuestra colección.
+insertMany() : este método inserta dos o más documentos a nuestra colección.</p>
+<p>Tras esto, os voy a mostrar los ejemplos utilizados para cada uno de los métodos:
+En el primer caso, insertó un solo documento con los siguientes valores.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">db.coleccion1.insertOne({&#34;Num_serie&#34;: 123456789,&#34;Antiguedad&#34;: &#34;12-09-2015&#34;, &#34;Fecha_ultima_revision&#34;: &#34;01-02-2022&#34;,&#34;Num_horas_vuelo&#34;: 345,&#34;Modelo_compania&#34;: &#34;Boeing&#34;,&#34;Caracteristicas&#34;: [ {&#34;Num_motores&#34;: 1,&#34;Num_asientos&#34;: 180, &#34;Potencia_motores&#34;: 46.32, &#34;Dimensiones&#34;: 30.50,&#34;Autonomia&#34;: 8000 }],&#34;mantenimiento&#34;: [{&#34;cod_mantenimiento&#34;: &#34;MNT-001&#34;,&#34;Descripcion&#34;: &#34;Revisión de motores&#34;, &#34;Nombre_tecnico&#34;: &#34;Jose Manuel Fernández&#34;}]})
+</span></span></code></pre></div><p><img src="../img/mongo/insertone2.png" alt="Parte 2"></p>
+<p>Con esta inserción, vemos el correcto funcionamiento de este complemento .insertOne(). Pasamos al complemento .insertMany() en el cual inserto 2 los documentos de las tablas vuelo y viajes de ambas colecciones que faltan.</p>
+<p><img src="../img/mongo/insertmany2v1.png" alt="Parte 2">
+<img src="../img/mongo/insertmany2v2.png" alt="Parte 2"></p>
+<p>Con esto hemos mostrado los ejemplos de inserción. Los demás datos que no mostramos cómo los de avion-mantenimienrto y vuelos-viajes lo haremos con el insertMany().</p>
+<h4 id="4-elimina-varios-documentos-utilizando-los-dos-métodos-de-eliminación-de-mongodb-1">4. Elimina varios documentos utilizando los dos métodos de eliminación de MongoDB</h4>
+<p>En MongoDB, existen dos métodos principales para eliminar documentos de una colección:</p>
+<p>deleteOne()
+deleteMany()</p>
+<p>A continuación, te mostraré cómo utilizar ambos métodos para eliminar documentos de una colección. Primero, comentamos el borrado de datos simple con esta consulta para eliminar la primera que insertamos:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">db.coleccion2.deleteOne({
+</span></span><span class="line"><span class="cl">    &#34;vuelo.cod_vuelo&#34;: &#34;VU-010&#34;
+</span></span><span class="line"><span class="cl">})
+</span></span></code></pre></div><p><img src="../img/mongo/deleteone2.png" alt="Parte 2"></p>
+<p>Con esto, hemos borrado un dato que agregamos anteriormente con el cod_vuelo “VU-010” en mongodb. Tras esto, vamos hacer una consulta para que nos deje borrar más de un tipo de dato. Esto lo haremos con el método de deleteMany() que se verá de esta forma:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">db.coleccion2.deleteMany({ &#34;viaje.Cancelado&#34;: &#34;Y&#34; })
+</span></span></code></pre></div><p><img src="../img/mongo/deletemany2.png" alt="Parte 2"></p>
+<p>Con este borrado, hemos eliminado los vuelos que hayan sido cancelados. Con esto ya hemos visto todos los ejemplos de eliminacion.</p>
+<h4 id="5-actualiza-varios-documentos-utilizando-los-tres-métodos-de-eliminación-de-mongodb-1">5. Actualiza varios documentos utilizando los tres métodos de eliminación de MongoDB</h4>
+<p>En este apartado, para actualizar varios documentos utilizando los tres métodos de eliminación de MongoDB, primero necesitas tener varios documentos que cumplan con la modificación que quieres hacer. A continuación, se proporciona un ejemplo de cómo actualizar varios documentos utilizando los tres métodos de eliminación con este formato de JSON:
+Método updateOne(): actualiza el primer documento que cumpla con la condición especificada. Se verá mejor con este ejemplo:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">db.coleccion2.updateOne(
+</span></span><span class="line"><span class="cl">    { &#34;vuelo.cod_vuelo&#34;: &#34;VU-005&#34; },
+</span></span><span class="line"><span class="cl">    { $set: { &#34;vuelo.$.Cod_aeropuerto_origen&#34;: &#34;MAD&#34; } })
+</span></span></code></pre></div><p><img src="../img/mongo/updateone2.png" alt="Parte 2"></p>
+<p>Esta actualización hace que el vuelo con cod_vuelo VU-005, cambie el aeropuerto de origen al de MAD.
+Método updateMany(): actualiza todos los documentos que cumplan con la condición especificada. Se verá mejor con el siguiente ejemplo:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">db.coleccion2.updateMany(
+</span></span><span class="line"><span class="cl">   { &#34;viaje.Cancelado&#34;: &#34;N&#34; },
+</span></span><span class="line"><span class="cl">   { $set: { &#34;viaje.$.Cancelado&#34;: &#34;Y&#34; } }
+</span></span><span class="line"><span class="cl">)
+</span></span></code></pre></div><p><img src="../img/mongo/updatemany2.png" alt="Parte 2"></p>
+<p>Con esta actualización, hemos conseguido cambiar el campo Cancelado de N a Y en varios documentos a la vez.
+Método replaceOne(): reemplaza el primer documento que cumpla con la condición especificada. Se verá mejor con el siguiente ejemplo:
+(La consulta en la captura)
+<img src="../img/mongo/replaceone2.png" alt="Parte 2"></p>
+<p>Vienen explicados los cambios en la captura. Modificamos el cod_vuelo VU-006 a VU-010 y más datos correctamente.
+Tras esto, ya hemos el apartado de modificado y actualización en Mongo DB.</p>
+<h4 id="6-consultas-1">6. Consultas:</h4>
+<h4 id="61--al-menos-incluye-5-consultas-de-datos-simples-2">6.1.- Al menos incluye 5 consultas de datos simples</h4>
+<h4 id="62--al-menos-3-consultas-con-arrays-2">6.2.- Al menos 3 consultas con arrays</h4>
+<h4 id="63--al-menos-3-consultas-con-documentos-embebidos-2">6.3.- Al menos 3 consultas con documentos embebidos</h4>
+<h4 id="64--al-menos-1-consulta-de-agrupación-2">6.4.- Al menos 1 consulta de agrupación</h4>
+<p>Para este apartado, lo dividiremos en partes para poder dividirlo de la mejor manera sin agrupar distintos tipos de consultas.
+Y con esto comenzamos las consultas.</p>
+<h4 id="61--al-menos-incluye-5-consultas-de-datos-simples-3">6.1.- Al menos incluye 5 consultas de datos simples</h4>
+<ol>
+<li>Obtener todos los vuelos con código de aeropuerto origen &ldquo;SAN&rdquo;:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">db.collection2.find({&#34;vuelo.Cod_aeropuerto_origen&#34;: &#34;SAN&#34;})
+</span></span></code></pre></div><p><img src="../img/mongo/parte2.6.1.1.png" alt="Parte 2"></p>
+<ol start="2">
+<li>Obtener todos los viajes cancelados:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">db.collection2.find({&#34;viaje.Cancelado&#34;: &#34;Y&#34;})
+</span></span></code></pre></div><p><img src="../img/mongo/parte2.6.1.2.png" alt="Parte 2"></p>
+<ol start="3">
+<li>Obtener todos los vuelos con compañía Iberia:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">db.collection2.find({&#34;vuelo.Compania&#34;: &#34;Iberia&#34;})
+</span></span></code></pre></div><p><img src="../img/mongo/parte2.6.1.3.png" alt="Parte 2"></p>
+<ol start="4">
+<li>Obtener el número de serie y la fecha de la última revisión de la aeronave.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">db.coleccion1.find({}, {Num_serie: 1, Fecha_ultima_revision: 1})
+</span></span></code></pre></div><p><img src="../img/mongo/parte2.6.1.4.png" alt="Parte 2"></p>
+<ol start="5">
+<li>Obtener la descripción y el nombre del técnico para el mantenimiento con código &ldquo;MNT-010&rdquo;.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">db.coleccion1.find({&#34;mantenimiento.cod_mantenimiento&#34;: &#34;MNT-010&#34;}, {&#34;mantenimiento.Descripcion&#34;: 1, &#34;mantenimiento.Nombre_tecnico&#34;: 1})
+</span></span></code></pre></div><p><img src="../img/mongo/parte2.6.1.5.png" alt="Parte 2"></p>
+<p>Con esto, ya hemos acabado el apartado de consultas simples.</p>
+<h4 id="62--al-menos-3-consultas-con-arrays-3">6.2.- Al menos 3 consultas con arrays</h4>
+<ol>
+<li>Obtener todas las características del avión con número de serie igual a 917230416:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">db.coleccion1.find({&#34;Num_serie&#34;: 917230416}, {&#34;Caracteristicas&#34;: 1, &#34;_id&#34;: 0})
+</span></span></code></pre></div><p><img src="../img/mongo/parte2.6.2.1.png" alt="Parte 2"></p>
+<ol start="2">
+<li>Obtener la cantidad de motores de los aviones que tengan de modelo de compañia a Airbus:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">db.coleccion1.find({&#34;Modelo_compania&#34;: &#34;Airbus&#34;}, {&#34;Caracteristicas.Num_motores&#34;: 1, &#34;_id&#34;: 0})
+</span></span></code></pre></div><p><img src="../img/mongo/parte2.6.2.2.png" alt="Parte 2"></p>
+<ol start="3">
+<li>Obtener la descripción del mantenimiento de los aviones que tengan más de 1000 horas de vuelo.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">db.coleccion1.find({&#34;Num_horas_vuelo&#34;: {$gt: 1000}}, {&#34;mantenimiento.Descripcion&#34;: 1,&#34;_id&#34;: 0})
+</span></span></code></pre></div><p><img src="../img/mongo/parte2.6.2.3.png" alt="Parte 2"></p>
+<p>Con esto ya hemos acabado las consultas que involucran a arrays.</p>
+<h4 id="63--al-menos-3-consultas-con-documentos-embebidos-3">6.3.- Al menos 3 consultas con documentos embebidos</h4>
+<ol>
+<li>Obtener las dimensiones del avión con número de serie 234819194:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">db.coleccion1.find({&#34;Num_serie&#34;: 234819194}, {&#34;Caracteristicas.Dimensiones&#34;: 1, &#34;_id&#34;: 0})
+</span></span></code></pre></div><p><img src="../img/mongo/parte2.6.3.1.png" alt="Parte 2"></p>
+<ol start="2">
+<li>Obtener todas las características de los aviones con menos de 400 horas de vuelo:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">db.coleccion1.find({&#34;Num_horas_vuelo&#34;: {$lt: 400}}, {&#34;Caracteristicas.Num_motores&#34;: 1,&#34;Caracteristicas.Num_asientos&#34;: 1, &#34;Caracteristicas.Potencia_motores&#34;: 1, &#34;Caracteristicas.Dimensiones&#34;: 1, &#34;Caracteristicas.Autonomia&#34;: 1, &#34;_id&#34;: 0})
+</span></span></code></pre></div><p><img src="../img/mongo/parte2.6.3.2.png" alt="Parte 2"></p>
+<ol start="3">
+<li>Obtener el nombre del vuelo que sale desde Valencia a Mallorca el 11 de abril de 2023:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">db.collection2.find({&#34;vuelo.Cod_aeropuerto_origen&#34;: &#34;VAL&#34;,&#34;vuelo.Cod_aeropuerto_destino&#34;: &#34;MLL&#34;,&#34;viaje.Fecha_viaje&#34;: &#34;2023-04-11&#34;}, {&#34;vuelo.Nombre&#34;: 1, &#34;_id&#34;: 0})
+</span></span></code></pre></div><p><img src="../img/mongo/parte2.6.3.3.png" alt="Parte 2"></p>
+<p>Con esto ya hemos acabado las consultas que involucran a los documentos embebidos.</p>
+<h4 id="64--al-menos-1-consulta-de-agrupación-3">6.4.- Al menos 1 consulta de agrupación</h4>
+<ol>
+<li>Obtener, por grupos, los documentos de la colección vuelos por la compañía de cada vuelo y cuenta cuántos documentos hay en cada grupo:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">db.collection2.aggregate([{ $group: { _id: &#34;$vuelo.Compania&#34;, count: { $sum: 1 } } }])
+</span></span></code></pre></div><p><img src="../img/mongo/parte2.6.4.1.png" alt="Parte 2"></p>
+<p>Con esto ya hemos acabado las consulta de agrupación y el proyecto de MongoDB.</p>
+
+        
+          <div class="blog-tags">
+            
+              <a href="https://www.pepepfoter15.es/tags/mongo/">mongo</a>&nbsp;
+            
+              <a href="https://www.pepepfoter15.es/tags/bbdd/">bbdd</a>&nbsp;
+            
+              <a href="https://www.pepepfoter15.es/tags/sql/">sql</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+              </div>
+            </section>
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://www.pepepfoter15.es/post/underworldevolution-par/" data-toggle="tooltip" data-placement="top" title="Underworld Evolution">&larr; Artículo anterior</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://www.pepepfoter15.es/post/ssh-iso/" data-toggle="tooltip" data-placement="top" title="Configuración Windows Server Core 2019 SSH">Artículo siguiente &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+    
+<footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+		
+		  <a href="mailto:Pepepfoter15@gmail.com" title="Email me">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://github.com/pepepfoter15" title="GitHub">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://twitter.com/PepeRodrguezCa3" title="Twitter">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://linkedin.com/in/pepe-rodr%c3%adguez-ca%c3%b1as-6578b8262" title="LinkedIn">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://www.instagram.com/pepee.15" title="Instagram">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://open.spotify.com/user/_peepe15_" title="Spotify">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-spotify fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              Pepe Rodríguez
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy; 
+          
+            
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.pepepfoter15.es">Pfoter&#39;s Blog</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.111.3</a> alimentada &nbsp;&bull;&nbsp; Tema <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adaptado de <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://www.pepepfoter15.es/js/main.js"></script>
+<script src="https://www.pepepfoter15.es/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://www.pepepfoter15.es/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

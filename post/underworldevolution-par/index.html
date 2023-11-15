@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="es" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>Underworld Evolution - </title>
+
+  <meta name="description" content="Planificación y Administración de Redes - PAR">
+  <meta name="author" content="Pepe Rodríguez"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Pfoter\u0027s Blog",
+    
+    "url": "https:\/\/www.pepepfoter15.es"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/www.pepepfoter15.es"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/www.pepepfoter15.es",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/www.pepepfoter15.es\/post\/underworldevolution-par\/",
+          "name": "Underworld evolution"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Pepe Rodríguez"
+  },
+  "headline": "Underworld Evolution",
+  "description" : "Underworld Evolution: Tareas de Administración de Red en el Inframundo",
+  "inLanguage" : "es",
+  "wordCount":  3429 ,
+  "datePublished" : "0001-01-01T00:00:00",
+  "dateModified" : "0001-01-01T00:00:00",
+  "image" : "https:\/\/www.pepepfoter15.es\/img\/fondo.jpg",
+  "keywords" : [ "redes, iptables" ],
+  "mainEntityOfPage" : "https:\/\/www.pepepfoter15.es\/post\/underworldevolution-par\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/www.pepepfoter15.es",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/www.pepepfoter15.es\/img\/fondo.jpg",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="Underworld Evolution" />
+<meta property="og:description" content="Planificación y Administración de Redes - PAR">
+<meta property="og:image" content="https://www.pepepfoter15.es/img/fondo.jpg" />
+<meta property="og:url" content="https://www.pepepfoter15.es/post/underworldevolution-par/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Pfoter&#39;s Blog" />
+
+  <meta name="twitter:title" content="Underworld Evolution" />
+  <meta name="twitter:description" content="Planificación y Administración de Redes - PAR">
+  <meta name="twitter:image" content="https://www.pepepfoter15.es/img/fondo.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@PepeRodrguezCa3" />
+  <meta name="twitter:creator" content="@PepeRodrguezCa3" />
+  <link href='https://www.pepepfoter15.es/img/faviconbueno.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.111.3">
+  <link rel="alternate" href="https://www.pepepfoter15.es/index.xml" type="application/rss+xml" title="Pfoter&#39;s Blog"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://www.pepepfoter15.es/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://www.pepepfoter15.es/css/highlight.min.css" /><link rel="stylesheet" href="https://www.pepepfoter15.es/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Conmuta navegación</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.pepepfoter15.es">Pfoter&#39;s Blog</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent">Proyectos</a>
+              <div class="navlinks-children">
+                
+                  <a href="/post/ssh-iso">Configuración Windows Server Core 2019 SSH - ISO</a>
+                
+                  <a href="/post/proyectomongo-bbdd">Proyecto de MongoDB - BBDD</a>
+                
+                  <a href="/post/underworldevolution-par">UNDERWORLD EVOLUTION - PAR</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Sobre mí" href="/page/about/">Sobre mí</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="Pfoter&#39;s Blog" href="https://www.pepepfoter15.es">
+            <img class="avatar-img" src="https://www.pepepfoter15.es/img/fondo.jpg" alt="Pfoter&#39;s Blog" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+    <div id="header-big-imgs" data-num-img=3
+      
+         
+          data-img-src-1="../img/triangle.jpg"
+         
+         data-img-desc-1="Triangle"
+      
+         
+          data-img-src-2="../img/sphere.jpg"
+         
+         data-img-desc-2="Sphere"
+      
+         
+          data-img-src-3="../img/hexagon.jpg"
+         
+         data-img-desc-3="Hexagon"
+      ></div>
+  
+
+  <header class="header-section has-img">
+    
+      
+      <div class="intro-header big-img" style="background-image: url('../img/triangle.jpg');">
+        
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+              <div class="post-heading">
+                <h1>Underworld Evolution</h1>
+                  
+                    
+                      <h2 class="post-subheading">Planificación y Administración de Redes - PAR</h2>
+                    
+                  
+                  
+                    <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Publicado el Octubre 19, 10112
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;17&nbsp;minutos
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;3429&nbsp;palabras
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Pepe Rodríguez
+    
+  
+  
+</span>
+
+
+                  
+              </div>
+            </div>
+          </div>
+        </div>
+        <span class="img-desc" style="display: inline;">Triangle</span>
+      </div>
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Underworld Evolution</h1>
+              
+              
+              
+                
+                  <h2 class="post-subheading">Planificación y Administración de Redes - PAR</h2>
+                
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Publicado el Octubre 19, 10112
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;17&nbsp;minutos
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;3429&nbsp;palabras
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Pepe Rodríguez
+    
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h3 id="underworld-evolution-tareas-de-administración-de-red-en-el-inframundo">Underworld Evolution: Tareas de Administración de Red en el Inframundo</h3>
+<p>En esta práctica, realizaremos UNDERWORLD EVOLUTION de manera completa. UNDERWORLD ha evolucionado mucho en los últimos meses, por lo que debes realizar tareas de administración de la red para afrontar la nueva situación.</p>
+<h4 id="situación-actual">Situación Actual:</h4>
+<ul>
+<li>Se ha descubierto Internet en el Inframundo.</li>
+<li>Cada uno de los submundos (vampiros, licántropos, hombres lobo y humanos) se conecta a un router que los enlaza con uno de los dos grandes routers que conforman la Internet de Underworld: Marcus (para humanos y vampiros) y Alexander (para hombres lobo y licántropos). Marcus y Alexander están interconectados.</li>
+</ul>
+<p><img src="../img/underworld/1%20esquema.png" alt="Esquema de la infraestructura"></p>
+<h4 id="tareas-a-realizar">Tareas a Realizar:</h4>
+<ol>
+<li>
+<p><strong>Sustituir los Routers CISCO</strong>: Reemplaza en la infraestructura de red los routers CISCO por máquinas Linux siguiendo el esquema de la figura.</p>
+</li>
+<li>
+<p><strong>Configurar las Máquinas Linux</strong>: Asegúrate de configurar adecuadamente las máquinas Linux para que funcionen como routers.</p>
+</li>
+<li>
+<p><strong>Crear Tablas de Enrutamiento</strong>: Crea las tablas de enrutamiento necesarias para permitir la comunicación entre todas las máquinas. Ten en cuenta que las redes internas utilizarán direcciones privadas, mientras que en Internet se utilizarán direcciones públicas.</p>
+</li>
+<li>
+<p><strong>Configurar Cortafuegos</strong>:</p>
+<ul>
+<li>Los VAMPIROS no podrán comunicarse con el resto de especies.</li>
+<li>Los HOMBRES LOBO y los LICÁNTROPOS podrán comunicarse entre sí, pero no con el resto de especies.</li>
+<li>Los HUMANOS tampoco podrán comunicarse con el resto de especies.</li>
+</ul>
+</li>
+<li>
+<p><strong>Configurar el Servicio DHCP</strong>: Configura el servicio DHCP de acuerdo a las condiciones que tenían los hombres lobo y los licántropos cuando se usaban routers CISCO.</p>
+</li>
+<li>
+<p><strong>Configurar Reglas en los Cortafuegos</strong>:</p>
+<ul>
+<li>Desde HUMANLAND, asegúrate de que IT KNIGHT pueda seguir comunicándose con sus dos vampiras favoritas, SONJA y SELENE.</li>
+</ul>
+</li>
+<li>
+<p><strong>Montar un Servidor Web en HUMANLAND</strong>: Realiza las configuraciones necesarias para montar en HUMANLAND un servidor web accesible desde cualquier parte de UNDERWORLD.</p>
+</li>
+</ol>
+<p>Tras leer todo el enunciado, estamos listos para comenzar con Underworld Evolution. 🙂</p>
+<h3 id="1--ejercicio-1">1.- Ejercicio 1</h3>
+<h4 id="1-sustituir-en-la-infraestructura-de-red-los-routers-cisco-por-máquinas-linux-siguiendo-el-esquema-de-la-figura">1. Sustituir en la infraestructura de red los routers CISCO por máquinas Linux siguiendo el esquema de la figura.</h4>
+<p>Simplemente montamos el esquema que nos muestra la foto, pero cambiamos los VPCS por Linux para ser más fáciles a la hora de manipular los servicios ssh.</p>
+<p>El esquema se verá de esta manera:</p>
+<p><img src="../img/underworld/2%20escenario.png" alt="Esquema de la infraestructura modificada"></p>
+<p>Las Ips de los PCS y de las interfaces de los routers está adjunta en la foto.</p>
+<h3 id="2--ejercicio-2">2.- Ejercicio 2</h3>
+<h4 id="2-configurar-adecuadamente-las-máquinas-linux-para-que-funcionen-como-routers">2. Configurar adecuadamente las máquinas Linux para que funcionen como routers.</h4>
+<p>En este apartado lo que haremos será, colocar las IPS de la máquinas y de las interfaces de los routers correctamente y posteriormente transformar las máquinas Linux en routers.
+Este último paso, deberemos activar el bit de forwarding en los 4 routers.</p>
+<p>Por ello, primero deberemos configurar las IP en las máquinas Debian mediante el directorio /etc/network/interfaces. Cuando ya esté modificamos, guardamos y salimos de este fichero. Para terminar, deberemos tirar y subir las tarjetas con los comandos siguientes:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo ifdown [nombre_tarjeta_red]
+</span></span><span class="line"><span class="cl">sudo ifup [nombre_tarjeta_red]
+</span></span></code></pre></div><p>Tras esta breve explicación os mostraré captura de la configuración de las interfaces:</p>
+<p>PC1:
+<img src="../img/underworld/ejercicio1pc1.png" alt="Esquema de la infraestructura modificada"></p>
+<p>PC2:
+<img src="../img/underworld/ejercicio1pc2.png" alt="Esquema de la infraestructura modificada"></p>
+<p>PC3:
+<img src="../img/underworld/ejercicio1pc3.png" alt="Esquema de la infraestructura modificada"></p>
+<p>PC4:
+<img src="../img/underworld/ejercicio1pc4.png" alt="Esquema de la infraestructura modificada"></p>
+<p>PC5:
+<img src="../img/underworld/ejercicio1pc5.png" alt="Esquema de la infraestructura modificada"></p>
+<p>PC6:
+<img src="../img/underworld/ejercicio1pc6.png" alt="Esquema de la infraestructura modificada"></p>
+<p>PC7:
+<img src="../img/underworld/ejercicio1pc7.png" alt="Esquema de la infraestructura modificada"></p>
+<p>PC8:
+<img src="../img/underworld/ejercicio1pc8.png" alt="Esquema de la infraestructura modificada"></p>
+<p>R1:
+<img src="../img/underworld/ejercicio1r1.png" alt="Esquema de la infraestructura modificada"></p>
+<p>R2:
+<img src="../img/underworld/ejercicio1r2.png" alt="Esquema de la infraestructura modificada"></p>
+<p>R3:
+<img src="../img/underworld/ejercicio1r3.png" alt="Esquema de la infraestructura modificada"></p>
+<p>R4:
+<img src="../img/underworld/ejercicio1r4.png" alt="Esquema de la infraestructura modificada"></p>
+<p>MARCUS:
+<img src="../img/underworld/ejercicio1marcus.png" alt="Esquema de la infraestructura modificada"></p>
+<p>ALEXANDER
+<img src="../img/underworld/ejercicio1alexander.png" alt="Esquema de la infraestructura modificada"></p>
+<p>Con esto, ya tendremos configuradas las IPs de las máquinas e interfaces de los routers. Entonces, deberemos transformar los PC de Debian que queramos que sean router con los siguientes comandos (lo haremos con el router 1 para hacer la prueba).
+Previamente deberemos ver si está el bit de forwarding encendido, esto se verá con el siguiente comando.
+cat /proc/sys/net/ipv4/ip_forward
+Si nos muestra un 1, es que estará activado este bit y será un router configurado en un sistema Debian. Si, por lo contrario, nos muestra un 0, es que está bit no estará activado y actuará como si fuese un PC normal con un sistema operativo basado en Debian.
+En nuestro caso en el router 1, nos vendrá que está apagado.</p>
+<p>Si no está activado, hacemos lo siguiente:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo su
+</span></span><span class="line"><span class="cl">echo &#39;1&#39; &gt; /proc/sys/net/ipv4/ip_forward
+</span></span><span class="line"><span class="cl">cat /proc/sys/net/ipv4/ip_forward
+</span></span></code></pre></div><p>Y con esto nuestra máquina Debian estará configurada para ser un router.
+Este paso lo deberemos hacer con todas las máquinas que queramos convertir a routers y por ello estas son:</p>
+<p>R1, R2, R3, R4, MARCUS y ALEXANDER.</p>
+<p>Y con esto ya habremos acabado este segundo apartado.</p>
+<h3 id="3--ejercicio-3">3.- Ejercicio 3</h3>
+<h4 id="3-crear-las-tablas-de-enrutamiento-necesarias-para-que-todas-las-máquinas-se-comuniquen-con-todas-en-principio-teniendo-en-cuenta-que-las-redes-internas-tendrán-direcciones-privadas-y-en-internet-tendremos-direcciones-públicas">3. Crear las tablas de enrutamiento necesarias para que todas las máquinas se comuniquen con todas en principio, teniendo en cuenta que las redes internas tendrán direcciones privadas y en Internet tendremos direcciones públicas.</h4>
+<p>Para este apartado nos basaremos en el enrutamiento de las redes con ip públicas entre los routers y MARCUS y ALEXANDER que son los routers que están en medio de la conexión entre redes privadas y públicas.</p>
+<p>Previamente, nos vamos a centrar en el enrutamiento de los routers R1, R2, R3 y R4 ya que solo tendrán una ruta por defecto para ir a los routers centrales (MARCUS y ALEXANDER).</p>
+<p>R1:</p>
+<table>
+<thead>
+<tr>
+<th>Origen</th>
+<th>Destino</th>
+<th>Interfaz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.0.0.0</td>
+<td>90.0.0.2</td>
+<td>ens5</td>
+</tr>
+</tbody>
+</table>
+<p>R2:</p>
+<table>
+<thead>
+<tr>
+<th>Origen</th>
+<th>Destino</th>
+<th>Interfaz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.0.0.0</td>
+<td>90.0.0.2</td>
+<td>ens5</td>
+</tr>
+</tbody>
+</table>
+<p>R3:</p>
+<table>
+<thead>
+<tr>
+<th>Origen</th>
+<th>Destino</th>
+<th>Interfaz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.0.0.0</td>
+<td>180.0.0.2</td>
+<td>ens5</td>
+</tr>
+</tbody>
+</table>
+<p>R4:</p>
+<table>
+<thead>
+<tr>
+<th>Origen</th>
+<th>Destino</th>
+<th>Interfaz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.0.0.0</td>
+<td>190.0.0.2</td>
+<td>ens5</td>
+</tr>
+</tbody>
+</table>
+<p>Y las tablas de enrutamiento de MARCUS y ALEXANDER.</p>
+<p>MARCUS</p>
+<table>
+<thead>
+<tr>
+<th>Origen</th>
+<th>Destino</th>
+<th>Interfaz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>80.0.0.0</td>
+<td>0.0.0.0</td>
+<td>ens4</td>
+</tr>
+<tr>
+<td>90.0.0.0</td>
+<td>0.0.0.0</td>
+<td>ens5</td>
+</tr>
+<tr>
+<td>100.0.0.0</td>
+<td>0.0.0.0</td>
+<td>ens6</td>
+</tr>
+<tr>
+<td>180.0.0.0</td>
+<td>100.0.0.2</td>
+<td>ens6</td>
+</tr>
+<tr>
+<td>190.0.0.0</td>
+<td>100.0.0.2</td>
+<td>ens6</td>
+</tr>
+<tr>
+<td>0.0.0.0</td>
+<td>100.0.0.2</td>
+<td>ens6</td>
+</tr>
+</tbody>
+</table>
+<p>ALEXANDER</p>
+<table>
+<thead>
+<tr>
+<th>Origen</th>
+<th>Destino</th>
+<th>Interfaz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>80.0.0.0</td>
+<td>100.0.0.1</td>
+<td>ens6</td>
+</tr>
+<tr>
+<td>90.0.0.0</td>
+<td>100.0.0.1</td>
+<td>ens6</td>
+</tr>
+<tr>
+<td>100.0.0.0</td>
+<td>0.0.0.0</td>
+<td>ens6</td>
+</tr>
+<tr>
+<td>180.0.0.0</td>
+<td>0.0.0.0</td>
+<td>ens4</td>
+</tr>
+<tr>
+<td>190.0.0.0</td>
+<td>0.0.0.0</td>
+<td>ens5</td>
+</tr>
+<tr>
+<td>0.0.0.0</td>
+<td>100.0.0.1</td>
+<td>ens6</td>
+</tr>
+</tbody>
+</table>
+<p>Tras esto, entramos en el modo configuración con los siguientes comandos para configurar el enrutamiento.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo su
+</span></span><span class="line"><span class="cl">ip route: para ver las rutas
+</span></span><span class="line"><span class="cl">ip r delete [red_local] [mascara_red] via [ip_interfaz_destino] dev [interfaz] 
+</span></span><span class="line"><span class="cl">ip r add [red_local] [mascara_red] via [ip_interfaz_destino] dev [interfaz] 
+</span></span></code></pre></div><p>R1:
+<img src="../img/underworld/ejercicio3r1.png" alt="Ejercicio 3"></p>
+<p>R2:
+<img src="../img/underworld/ejercicio3r2.png" alt="Ejercicio 3"></p>
+<p>R3:
+<img src="../img/underworld/ejercicio3r3.png" alt="Ejercicio 3"></p>
+<p>R4:
+<img src="../img/underworld/ejercicio3r4.png" alt="Ejercicio 3"></p>
+<p>MARCUS:
+<img src="../img/underworld/ejercicio3marcus.png" alt="Ejercicio 3"></p>
+<p>ALEXANDER:
+<img src="../img/underworld/ejercicio3alexander.png" alt="Ejercicio 3"></p>
+<p>Para comprobar su correcto enrutamiento, voy a hacer un ping desde el router 1 con ip 90.0.0.1 hacia los routers:</p>
+<p>R2: 80.0.0.1
+R3: 190.0.0.1
+R4: 180.0.0.1</p>
+<p><img src="../img/underworld/ejercicio3prueba.png" alt="Ejercicio 3"></p>
+<p>MARCUS y ALEXANDER no hace falta ya que si llega a los routers R3 y R4 es porque funciona correctamente.</p>
+<p>Tras esto, deberemos configurar el SNAT y DNAT de los routers R1, R2, R3 y R4 para poder pasar de las redes privadas a redes públicas para poder hacer peticiones a las otras máquinas.</p>
+<p>Además como vamos a configurar el SNAT y DNAT para tener varios servidores ssh, deberemos tocar el siguiente fichero de configuración con el siguiente comando:
+nano /etc/ssh/sshd_config
+Cuando ya entramos, buscamos la línea que especifica el puerto en el que el servicio SSH escucha actualmente y la modificamos de esta manera:</p>
+<p><img src="../img/underworld/ejercicio3confpc1pc2.png" alt="Ejercicio 3"></p>
+<p>En este caso, lo estoy modificando del PC1 y los pcs impares tendrá el puerto 22 y los pcs impares tendrán el puerto 2222 pero debemos configurar en los 8 PC menos MARCUS y ALEXANDER. Además, he añadido otro puerto para los DNAT para que pueda haber más de un servidor ssh.</p>
+<p>Tras esto, guardamos los cambios en el archivo y salimos del editor.
+Posteriormente, reiniciamos el servicio SSH para que los cambios surtan efecto con el siguiente comando:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo systemctl restart sshd.service
+</span></span></code></pre></div><p>Una vez que haya completado estos pasos, debería poder conectarse al servicio SSH en el router Debian utilizando cualquiera de los puertos que haya especificado en el archivo de configuración. Por ejemplo, si agregó el puerto 2222, puede conectarse al servicio SSH utilizando ssh -p 2222 usuario@direccion_ip .</p>
+<p>ESTO SE DEBE HACER EN LOS 8 PC.</p>
+<p>Tras esto, comenzamos con los comandos de SNAT y DNAT. Para ello utilizaremos los siguientes comandos:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">- R1 (SNAT y DNAT): 
+</span></span><span class="line"><span class="cl">· iptables -t nat -A POSTROUTING -s 192.168.1.0/24 -o ens5 -j SNAT --to 90.0.0.1
+</span></span><span class="line"><span class="cl">· iptables -t nat -A PREROUTING -p tcp --dport 22 -i ens5 -j DNAT --to 192.168.1.1
+</span></span><span class="line"><span class="cl">· iptables -t nat -A PREROUTING -p tcp --dport 2222 -i ens5 -j DNAT --to 192.168.1.2
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">- R2 (SNAT y DNAT): 
+</span></span><span class="line"><span class="cl">· iptables -t nat -A POSTROUTING -s 192.168.2.0/24 -o ens5 -j SNAT --to 80.0.0.1
+</span></span><span class="line"><span class="cl">· iptables -t nat -A PREROUTING -p tcp --dport 22 -i ens5 -j DNAT --to 192.168.2.1
+</span></span><span class="line"><span class="cl">· iptables -t nat -A PREROUTING -p tcp --dport 2222 -i ens5 -j DNAT --to 192.168.2.2
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">- R3 (SNAT y DNAT): 
+</span></span><span class="line"><span class="cl">· iptables -t nat -A POSTROUTING -s 192.168.3.0/28 -o ens5 -j SNAT --to 180.0.0.1
+</span></span><span class="line"><span class="cl">· iptables -t nat -A PREROUTING -p tcp --dport 22 -i ens5 -j DNAT --to 192.168.3.1
+</span></span><span class="line"><span class="cl">· iptables -t nat -A PREROUTING -p tcp --dport 2222 -i ens5 -j DNAT --to 192.168.3.2
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">- R4 (SNAT y DNAT): 
+</span></span><span class="line"><span class="cl">· iptables -t nat -A POSTROUTING -s 192.168.4.0/28 -o ens5 -j SNAT --to 190.0.0.1
+</span></span><span class="line"><span class="cl">· iptables -t nat -A PREROUTING -p tcp --dport 22 -i ens5 -j DNAT --to 192.168.4.1
+</span></span><span class="line"><span class="cl">· iptables -t nat -A PREROUTING -p tcp --dport 2222 -i ens5 -j DNAT --to 192.168.4.2
+</span></span></code></pre></div><p>Tras esto, estos comandos los guardamos en un script que ejecutará todas las sentencias. Crearemos un archivo con el comando sudo nano reglas.sh y metemos estos comandos. Este contenido se hará en los 4 routers respectivamente.</p>
+<p>Previamente antes de meter estos comandos, deberemos añadir los siguientes comandos que son los siguientes:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">iptables -t nat -F
+</span></span><span class="line"><span class="cl">iptables -F
+</span></span></code></pre></div><p>Estos comandos borrarán todas las reglas existentes o presentes en las máquinas.</p>
+<p>Para ejecutar el script en cada una de las máquinas, deberemos cambiar los permisos al fichero previamente con el comando chmod u+x reglas.sh que es el fichero del script.
+Tras esto, ejecutamos el script con el siguiente comando ./reglas.sh y se reproducirá correctamente.</p>
+<p><img src="../img/underworld/ejercicio3reglas.png" alt="Ejercicio 3"></p>
+<p>Y con el SNAT y DNAT activado con el puerto 22 (que es el del servicio ssh), podremos hacer ssh a la máquina 7 desde la máquina 1 correctamente. Aplicaremos los siguientes comandos:</p>
+<p><img src="../img/underworld/ejercicio3pruebafinal.png" alt="Ejercicio 3"></p>
+<p>Para comprobar el SNAT y DNAT, deberemos hacer una conexión ssh a la ip pública del router 4 desde el PC1 y nos entrará en el PC7 ya que en el puerto del servicio es el 22, estaba primero la del PC7.
+Con esto ya habría acabado el ejercicio 3.</p>
+<h3 id="4--ejercicio-4">4.- Ejercicio 4</h3>
+<h4 id="4-configurar-los-cortafuegos-necesarios-en-los-routers-para-que">4. Configurar los cortafuegos necesarios en los routers para que:</h4>
+<p>Los VAMPIROS no puedan comunicarse con el resto de especies.
+Los HOMBRES LOBO y los LICÁNTROPOS, dado que no son tan repulsivos cuando se cruzan, podrán comunicarse entre sí. Con el resto de especies no tendrán comunicación.
+HUMANOS tampoco podrán comunicarse con el resto de especies.</p>
+<p>Primero de todo, os voy a comentar, con mis palabras, que es un cortafuego y para qué sirve ya que es un concepto nuevo para mi.</p>
+<p>Un cortafuegos (firewall en inglés) es un sistema de seguridad diseñado para proteger una red de computadoras de amenazas externas, como ataques de hackers, virus informáticos, spam, entre otros.
+El cortafuegos actúa como una barrera entre la red interna y el mundo exterior, controlando el tráfico que entra y sale de la red. Puede bloquear o permitir el acceso a ciertos recursos o aplicaciones, dependiendo de la configuración establecida por el administrador de la red
+Para la configuración de cortafuegos se hará de la siguiente manera:</p>
+<p>Primero, deberemos habilitar los servicios según sus puertos que queramos utilizar con los comandos iptables (explicaré posteriormente).
+Segundo, deberemos poner una política de acceso DROP para que no pase ni llegue nada a la red local.</p>
+<p>Con esto, en los apartados de humanos y vampiros simplemente hay que emplear una política de acceso DROP con los siguientes comandos:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">HUMALAND (R1):
+</span></span><span class="line"><span class="cl">iptables -P FORWARD DROP
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">TRANSILVANIA(R2):
+</span></span><span class="line"><span class="cl">iptables -P FORWARD DROP
+</span></span></code></pre></div><p>Además, guardo ambos comandos en el script que he creado anteriormente.
+Para comprobar su correcto funcionamiento, deberemos hacer ssh desde una máquina de afuera como por ejemplo PC5 a la ip pública de los routers. Tras esto, no debería hacernos la conexión ssh.</p>
+<p>Con esto ya habríamos cortado el tráfico a los humanos y vampiros.
+Para lo siguiente que es poder poner una red para los licántropos y los hombres lobo debemos seguir los siguientes comandos:</p>
+<p>Primero, deberemos denegar todo el tráfico por defecto con los siguientes comandos:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">LICANLAND(R3):
+</span></span><span class="line"><span class="cl">iptables -P FORWARD DROP
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">WOLFLAND(R4):
+</span></span><span class="line"><span class="cl">iptables -P FORWARD DROP
+</span></span></code></pre></div><p>Y segundo, deberemos aplicar los siguientes comandos de iptables para que no lleguen mensajes de los routers 1 y 2. Esto lo haremos con los siguientes comandos:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">LICANLAND(R3):
+</span></span><span class="line"><span class="cl">iptables -A FORWARD -s 192.168.3.0/28 -d 190.0.0.1 -i ens4 -o ens5 -j ACCEPT
+</span></span><span class="line"><span class="cl">iptables -A FORWARD -s 190.0.0.1 -d 192.168.3.0/28 -i ens5 -o ens4 -j ACCEPT
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">WOLFLAND(R4):
+</span></span><span class="line"><span class="cl">iptables -A FORWARD -s 192.168.4.0/28 -d 180.0.0.1 -i ens4 -o ens5 -j ACCEPT
+</span></span><span class="line"><span class="cl">iptables -A FORWARD -s 180.0.0.1 -d 192.168.4.0/28 -i ens5 -o ens4 -j ACCEPT
+</span></span></code></pre></div><p>Tras esto, ejecutamos el script nuevo con las nuevas modificaciones.
+Para comprobar su correcto funcionamiento, hacemos ssh desde el PC5 a la ip pública router 4 (190.0.0.1) y comprobamos que hace ssh correctamente con los 2 puertos 22 y 2222 y vemos que entra en las 2 máquinas.</p>
+<p><img src="../img/underworld/ejercicio4prueba1.png" alt="Ejercicio 4">
+<img src="../img/underworld/ejercicio4prueba2.png" alt="Ejercicio 4"></p>
+<p>Con esto ya habremos configurado los correspondientes firewalls.</p>
+<h3 id="5--ejercicio-5">5.- Ejercicio 5</h3>
+<h4 id="5-configurar-el-servicio-dhcp-que-tenían-los-hombres-lobo-y-los-licántropos-en-las-mismas-condiciones-que-tenían-cuando-se-usaban-routers-cisco">5. Configurar el servicio DHCP que tenían los hombres lobo y los licántropos en las mismas condiciones que tenían cuando se usaban routers CISCO.</h4>
+<p>En este apartado, deberemos configurar el servidor de DHCP para los routers R3 y R4. Para ello, tenemos que conectar una nube a cada servidor y se verá de esta manera:</p>
+<p><img src="../img/underworld/ejercicio5esquema.png" alt="Ejercicio 5"></p>
+<p>Tras esto, para poder configurarlo, deberemos seguir los siguientes comandos:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo apt update
+</span></span><span class="line"><span class="cl">sudo apt install isc-dhcp-server
+</span></span></code></pre></div><p>Esto lo haremos en los routers R3 y R4 por igual.</p>
+<p>Con esto instalado, volvemos a conectarlos configurando de nuevo la interfaces como las teníamos. Cuando terminemos configuramos el fichero /etc/dhcp/dhcpd.conf y modificamos añadiendo al final lo siguiente:</p>
+<p>R3:
+<img src="../img/underworld/ejercicio5r3.png" alt="Ejercicio 5"></p>
+<p>R4:
+<img src="../img/underworld/ejercicio5r4.png" alt="Ejercicio 5"></p>
+<p>Esto lo haremos en los routers y guardamos dichos cambios.
+Tras esto, entramos en /etc/default/isc-dhcp-server y modificamos el último apartado donde pone INTERFACES=”” y añadimos entre de las comillas el nombre de la interfaz de la puerta de enlace. En nuestro caso es ens4 y se verá de la siguiente manera:</p>
+<p><img src="../img/underworld/ejercicio5interfaz.png" alt="Ejercicio 5"></p>
+<p>Por último, guardaremos esto cambios reiniciando el sistema con los siguientes comandos y comprobando que están activos:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo systemctl restart isc-dhcp-server.service
+</span></span><span class="line"><span class="cl">sudo systemctl status isc-dhcp-server.service
+</span></span></code></pre></div><p>Para comprobar que esto funciona, nos vamos a las máquinas de PC5, PC6, PC7 y PC8 y configuramos la tarjeta ens4 que es la de ip estática y la ponemos de la siguiente manera para que coja de dhcp en estas 4 máquinas (en este ejemplo uso PC5):
+<img src="../img/underworld/ejercicio5ipestatica.png" alt="Ejercicio 5"></p>
+<p>Restauramos la tarjeta y nos debería mostrar con el comando ip a la ip puesta por dhcp:
+<img src="../img/underworld/ejercicio5ipdhcp.png" alt="Ejercicio 5"></p>
+<p>Me da la 192.168.3.1 porque es la primera en el rango especificado cuando tocamos el fichero de configuración llamado /etc/dhcp/dhcpd.conf.
+Esto lo deberemos hacer con los PC que comenté anteriormente (5,6,7 y 8).
+Con esto ya habríamos acabado con este apartado.</p>
+<h3 id="6--ejercicio-6">6.- Ejercicio 6</h3>
+<h4 id="6-configurar-en-los-cortafuegos-las-reglas-necesarias-para-que-desde-humanland-it-knight-siga-comunicándose-con-sus-dos-vampiras-favoritas-sonja-y-selene">6. Configurar en los cortafuegos las reglas necesarias para que, desde HUMANLAND, IT KNIGHT siga comunicándose con sus dos vampiras favoritas (SONJA Y SELENE).</h4>
+<p>Para este ejercicio utilizaré las máquinas PC1, PC2 y PC3 serán SONJA, SELENE y IT KNIGHT respectivamente. Por ello, el esquema se verá de esta manera:</p>
+<p><img src="../img/underworld/ejercicio6esquema.png" alt="Ejercicio 6"></p>
+<p>Para esto, deberemos configurar los comandos entre SELENE y SONJA con IT KNIGHT tenemos que saber que harán falta 4 comandos para poder configurar que SELENE y IT KNIGHT se conecte desde uno a otro. Esto se deberá hacer otras 4 veces para que se pueda hacer recíprocamente y saldrán en total 8 comandos. Si además le sumamos que tenemos que repetirlo con SONJA, son 16 comandos finalmente.</p>
+<p>Con esto, comenzamos con los comandos:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">De IT KNIGHT a SELENE en 
+</span></span><span class="line"><span class="cl">R1:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">iptables -A FORWARD -s 192.168.1.1 -d 80.0.0.1 -i ens4 -o ens5 -p tcp --dport 22 -j ACCEPT
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">iptables -A FORWARD -s 80.0.0.1 -d 192.168.1.1 -i ens5 -o ens4 -p tcp --sport 22 -j ACCEPT
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">De IT KNIGHT a SONJA en 
+</span></span><span class="line"><span class="cl">R1:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">iptables -A FORWARD -s 192.168.1.1 -d 80.0.0.1 -i ens4 -o ens5 -p tcp --dport 2222 -j ACCEPT
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">iptables -A FORWARD -s 80.0.0.1 -d 192.168.1.1 -i ens5 -o ens4 -p tcp --sport 2222 -j ACCEPT
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">De IT KNIGHT a SELENE en 
+</span></span><span class="line"><span class="cl">R2:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">iptables -A FORWARD -s 90.0.0.1 -d 192.168.2.1 -i ens5 -o ens4 -p tcp --dport 22 -j ACCEPT
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">iptables -A FORWARD -s 192.168.2.1 -d 90.0.0.1 -i ens4 -o ens5 -p tcp --sport 22 -j ACCEPT
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">De IT KNIGHT a SONJA en 
+</span></span><span class="line"><span class="cl">R2:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">iptables -A FORWARD -s 90.0.0.1 -d 192.168.2.2 -i ens5 -o ens4 -p tcp --dport 2222 -j ACCEPT
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">iptables -A FORWARD -s 192.168.2.2 -d 90.0.0.1 -i ens4 -o ens5 -p tcp --sport 2222 -j ACCEPT
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">----------------------------------------------------------------------------------------------------------------------
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">De SELENE Y SONJA a IT KNIGHT en 
+</span></span><span class="line"><span class="cl">R1:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">iptables -A FORWARD -s 80.0.0.1 -d 192.168.1.1 -i ens5 -o ens4 -p tcp --dport 22 -j ACCEPT
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">iptables -A FORWARD -s 192.168.1.1 -d 80.0.0.1 -i ens4 -o ens5 -p tcp --sport 22 -j ACCEPT
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">De SELENE a IT KNIGHT en 
+</span></span><span class="line"><span class="cl">R2:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">iptables -A FORWARD -s 192.168.2.1 -d 90.0.0.1 -i ens4 -o ens5 -p tcp --dport 22 -j ACCEPT
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">iptables -A FORWARD -s 90.0.0.1 -d 192.168.2.1 -i ens5 -o ens4 -p tcp --sport 22 -j ACCEPT
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">De SONJA a IT KNIGHT en 
+</span></span><span class="line"><span class="cl">R2: 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">iptables -A FORWARD -s 192.168.2.2 -d 90.0.0.1 -i ens4 -o ens5 -p tcp --dport 22 -j ACCEPT
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">iptables -A FORWARD -s 90.0.0.1 -d 192.168.2.2 -i ens5 -o ens4 -p tcp --sport 22 -j ACCEPT
+</span></span></code></pre></div><p>Tras poner estas reglas y ejecutarlas para tenerlas en el sistema, tendremos que hacer las pruebas correspondientes.</p>
+<p>Desde IT KNIGHT a SELENE y SONJA:
+<img src="../img/underworld/ejercicio6prueba1.png" alt="Ejercicio 6"></p>
+<p>Desde SELENE a IT KNIGHT y SONJA a IT KNIGHT
+<img src="../img/underworld/ejercicio6prueba2.png" alt="Ejercicio 6"></p>
+<p>Con esto, ya hemos acabado este apartado 6.</p>
+<h3 id="7--ejercicio-7">7.- Ejercicio 7</h3>
+<h4 id="7-realiza-las-configuraciones-necesarias-para-montar-en-humanland-un-servidor-web-accesible-desde-cualquier-parte-de-underworld">7. Realiza las configuraciones necesarias para montar en HUMANLAND un servidor web accesible desde cualquier parte de UNDERWORLD.</h4>
+<p>Previamente, debemos instalar el servicio web y para ello previamente ponemos una máquina con una nube NAT al servidor web que hemos puesto nuevo.
+<img src="../img/underworld/ejercicio7esquema1.png" alt="Ejercicio 7"></p>
+<p>Posteriormente a esto, deberemos instalar el servidor web que vamos a poner en la propia máquina. Cuando esto ocurra, deberemos configurar la tarjeta ens4 por dhcp para poder tener acceso a internet. Esto lo hacemos modificando el fichero de  /etc/network/interfaces de la manera anterior con la interfaz con DHCP.</p>
+<p>Para que se transforme en un servidor web con el siguiente comando:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo apt update (actualizamos el sistema que tardará un rato)
+</span></span><span class="line"><span class="cl">sudo apt install apache2
+</span></span></code></pre></div><p>Gracias a estos comandos, restauramos y vemos que los servicios de apache están perfectamente configurados. Esto se hace con estos comandos:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo systemctl restart apache2
+</span></span><span class="line"><span class="cl">sudo systemctl status apache2
+</span></span></code></pre></div><p>Con esto, ya tenemos configurado el servidor web.</p>
+<p>Para hacer este apartado, deberemos poner una máquina Debian en HUMANLAND. El esquema se verá de esta manera:
+<img src="../img/underworld/ejercicio7esquema2.png" alt="Ejercicio 7"></p>
+<p>Para ello la configuramos con la ip 192.168.1.4 con netmask 24 con gateway 192.168.1.3 en el fichero /etc/network/interfaces al servidor web.</p>
+<p>Tras esto, deberemos configurar que este servidor pueda conectarse con los mundos de los vampiros, licántropos y hombres lobo. Para ello, aceptaremos el tráfico del puerto 80 que es el servidor web.</p>
+<p>Para ello en el router 1, deberemos configurar una regla de DNAT para el puerto 80 para el servidor web con ip 192.168.1.4. Por ello estos son los comandos que tenemos que emplear en cada uno de los routers (guardando los comandos en el script creado).</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">R1 HUMANLAND:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">iptables -t nat -A PREROUTING -p tcp --dport 80 -i ens5 -j DNAT --to 192.168.1.4
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">iptables -A FORWARD -s 192.168.1.4 -d 0.0.0.0/0 -i ens4 -o ens5 -p tcp --sport 80 -j ACCEPT
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">iptables -A FORWARD -s 0.0.0.0/0 -d 192.168.1.4 -i ens5 -o ens4 -p tcp --dport 80 -j ACCEPT
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">R2 TRANSILVANIA:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">iptables -A FORWARD -s 192.168.2.0/24 -d 90.0.0.1 -i ens4 -o ens5 -p tcp --dport 80 -j ACCEPT
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">iptables -A FORWARD -s 90.0.0.1 -d 192.168.2.0/24 -i ens5 -o ens4 -p tcp --sport 80 -j ACCEPT
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">R3 LICANTROPOS:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">iptables -A FORWARD -s 192.168.3.0/24 -d 90.0.0.1 -i ens4 -o ens5 -p tcp --dport 80 -j ACCEPT
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">iptables -A FORWARD -s 90.0.0.1 -d 192.168.3.0/24 -i ens5 -o ens4 -p tcp --sport 80 -j ACCEPT
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">R4 WOLFLAND:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">iptables -A FORWARD -s 192.168.4.0/24 -d 90.0.0.1 -i ens4 -o ens5 -p tcp --dport 80 -j ACCEPT
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">iptables -A FORWARD -s 90.0.0.1 -d 192.168.4.0/24 -i ens5 -o ens4 -p tcp --sport 80 -j ACCEPT
+</span></span></code></pre></div><p>Con esto, implementamos los scripts y anexamos máquinas Firefox a las redes locales de TRANSILVANIA, LICANTROPOS y WOLFLAND de esta manera.
+<img src="../img/underworld/ejercicio7esquema3.png" alt="Ejercicio 7"></p>
+<p>Tras esto, deberemos comprobar que está bien configurado las reglas con estas máquinas Firefox.
+En la máquina Firefox de TRANSILVANIA, deberemos asignar la ip y el gateway correspondiente de esta manera.
+Entramos en Control Panel, le damos a network y ponemos una ip privada que pertenezca a la red local y además con gateway 192.168.2.3 que es la puerta de enlace de esta red. Se verá de esta manera:
+<img src="../img/underworld/ejercicio7config1.png" alt="Ejercicio 7"></p>
+<p>En las máquinas Firefox de LICANLAND y WOLFLAND, simplemente tenemos que poner el servicio como que coja la ip por dhcp ya que hicimos la configuración dhcp en esos servidores.
+<img src="../img/underworld/ejercicio7config2.png" alt="Ejercicio 7"></p>
+<p>Tras esto, simplemente buscamos en nuestros buscador Firefox la ip pública del router 1 que es 90.0.0..1 y deberá salirnos el servicio web perfectamente configurado.</p>
+<p>Firefox de R2:
+<img src="../img/underworld/ejercicio7r2.png" alt="Ejercicio 7"></p>
+<p>Firefox de R3:
+<img src="../img/underworld/ejercicio7r3.png" alt="Ejercicio 7"></p>
+<p>Firefox de R4:
+<img src="../img/underworld/ejercicio7r4.png" alt="Ejercicio 7"></p>
+<p>Y con esto acabamos UNDERWORLD EVOLUTION.</p>
+
+        
+          <div class="blog-tags">
+            
+              <a href="https://www.pepepfoter15.es/tags/redes/">redes</a>&nbsp;
+            
+              <a href="https://www.pepepfoter15.es/tags/iptables/">iptables</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+              </div>
+            </section>
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+          
+            <li class="next">
+              <a href="https://www.pepepfoter15.es/post/proyectomongo-bbdd/" data-toggle="tooltip" data-placement="top" title="Proyecto de MongoDB">Artículo siguiente &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+    
+<footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+		
+		  <a href="mailto:Pepepfoter15@gmail.com" title="Email me">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://github.com/pepepfoter15" title="GitHub">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://twitter.com/PepeRodrguezCa3" title="Twitter">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://linkedin.com/in/pepe-rodr%c3%adguez-ca%c3%b1as-6578b8262" title="LinkedIn">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://www.instagram.com/pepee.15" title="Instagram">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://open.spotify.com/user/_peepe15_" title="Spotify">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-spotify fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              Pepe Rodríguez
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy; 
+          
+            
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.pepepfoter15.es">Pfoter&#39;s Blog</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.111.3</a> alimentada &nbsp;&bull;&nbsp; Tema <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adaptado de <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://www.pepepfoter15.es/js/main.js"></script>
+<script src="https://www.pepepfoter15.es/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://www.pepepfoter15.es/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+
